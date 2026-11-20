@@ -114,6 +114,17 @@ header .site-brand img{width:144px;height:36px;object-fit:contain}
 .recap-panelists .panel-person dd{margin:0}
 .keynote .panel-person p{margin-bottom:0}
 .recap-panel-title{font-size:18px;margin:0 0 12px}
+/* Keep the slashes on the boundaries of three equal label columns. */
+.hero .hero-bottom{position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;text-align:center}
+.hero-bottom > span:nth-child(odd){padding-inline:6px}
+.hero-bottom > span[aria-hidden="true"]{position:absolute;top:50%;transform:translate(-50%,-50%)}
+.hero-bottom > span:nth-child(2){left:33.333333%}
+.hero-bottom > span:nth-child(4){left:66.666667%}
+@media(min-width:701px){
+  #mission{align-items:center}
+  #mission h2{margin-bottom:0}
+  #mission .mission-copy{padding-top:0}
+}
 </style>
 <script defer src="./vendor/rough.min.js"></script>
 <script defer src="./vendor/hero-sketch.js"></script>
