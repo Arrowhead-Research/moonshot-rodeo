@@ -5,7 +5,7 @@ Researched October 29, 2026 using the Arrowhead Research Google Drive account (j
 ## Grounded findings
 
 - Moonshot Rodeo is Arrowhead Research's prototype showcase, distinct from Black Relay's technical build/field-testing program.
-- Audience and talent focus: nontraditional military, intelligence-community, and veteran technical talent; connections across defense, academia, venture, policy, and industry.
+- Audience and talent focus: nontraditional military and intelligence community technical talent; connections across defense, academia, venture, policy, and industry.
 - February 6, 2026 event: Virginia Tech Innovation Campus, Alexandria, Virginia. Promotional hours were 9:00 AM–1:30 PM.
 - Hosted with Virginia Tech and the Boeing Center for Veteran Transition and Military Families.
 - Retrospective confirms seven prototype presentations, eight-minute format, structured cross-sector expert feedback.
