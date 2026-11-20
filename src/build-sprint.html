@@ -44,16 +44,16 @@ function selectTrack(activeTab, focus = false) {
 function selectTrackFromHash() {
   const hash = location.hash.slice(1);
   const matchingTab = trackTabs.find(tab => tab.dataset.track === hash);
-  selectTrack(matchingTab || trackTabs[0], Boolean(matchingTab));
+  selectTrack(matchingTab || trackTabs[0]);
   // Public track hashes are state, not fragment targets below the tablist.
   if (matchingTab) window.scrollTo({ top: 0, behavior: 'instant' });
 }
 
 trackTabs.forEach((tab, index) => {
-  function activate(newTab) {
+  function activate(newTab, focus = false) {
     const hash = '#' + newTab.dataset.track;
     if (location.hash !== hash) history.pushState(null, '', hash);
-    selectTrack(newTab, true);
+    selectTrack(newTab, focus);
   }
 
   tab.addEventListener('click', () => activate(tab));
@@ -67,7 +67,7 @@ trackTabs.forEach((tab, index) => {
     };
     if (!Object.hasOwn(destinations, event.key)) return;
     event.preventDefault();
-    activate(trackTabs[destinations[event.key]]);
+    activate(trackTabs[destinations[event.key]], true);
   });
 });
 
