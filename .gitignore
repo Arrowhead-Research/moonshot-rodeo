@@ -1,0 +1,25 @@
+research/*.pdf
+research/*.png
+*.log
+
+# Dependencies and build caches
+node_modules/
+.cache/
+.parcel-cache/
+.next/
+.vite/
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Local secrets
+.env
+.env.*
+!.env.example
+
+# OS and editor junk
+.DS_Store
+Thumbs.db
+*.swp
+*.swo

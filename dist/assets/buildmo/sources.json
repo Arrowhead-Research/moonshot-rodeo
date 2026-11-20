@@ -1,0 +1,23 @@
+[
+  {
+    "file": "workspace.webp",
+    "source": "https://www.buildmo.com/img/program2.jpg",
+    "width": 1145,
+    "height": 1116,
+    "bytes": 238402
+  },
+  {
+    "file": "fabrication.webp",
+    "source": "https://www.buildmo.com/img/program1.jpg",
+    "width": 900,
+    "height": 877,
+    "bytes": 56466
+  },
+  {
+    "file": "welding-stations.webp",
+    "source": "https://www.buildmo.com/img/program3.jpg",
+    "width": 900,
+    "height": 877,
+    "bytes": 121446
+  }
+]
