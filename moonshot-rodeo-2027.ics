@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Arrowhead Research//Moonshot Rodeo//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:moonshot-rodeo-2027@arrowheadresearch.org
+DTSTAMP:20261121T000000Z
+DTSTART;VALUE=DATE:20270204
+DTEND;VALUE=DATE:20270205
+SUMMARY:Moonshot Rodeo 2027
+LOCATION:Virginia Tech Innovation Campus\, Academic Building One\, 3625 Pot
+ omac Ave\, Alexandria\, VA 22305
+DESCRIPTION:Military and intelligence community builders present prototypes
+  and field solutions to an expert panel. Details: https://arrowheadresearc
+ h.org/moonshot-rodeo/
+URL:https://arrowheadresearch.org/moonshot-rodeo/
+END:VEVENT
+END:VCALENDAR
