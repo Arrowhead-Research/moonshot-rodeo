@@ -7,6 +7,7 @@ from shutil import copytree
 
 copytree("vendor", "dist/vendor", dirs_exist_ok=True)
 copytree("assets/panel", "dist/assets/panel", dirs_exist_ok=True)
+copytree("assets/partners", "dist/assets/partners", dirs_exist_ok=True)
 
 for source, destination in [('src/index.html', 'dist/index.html'), ('src/build-sprint.html', 'dist/build-sprint/index.html')]:
     page = Path(source).read_text()
