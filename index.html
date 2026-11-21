@@ -134,6 +134,17 @@ address{font-style:normal;font-size:19px;line-height:1.5;margin:0 0 18px}
 .hero-meta a{text-decoration:underline;text-decoration-color:rgba(238,242,239,.35);text-underline-offset:4px}
 .hero-meta a:hover{text-decoration-color:var(--signal)}
 .hero-actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+/* Hero entrance: copy rises in a stagger while the photo settles */
+@keyframes hero-rise{from{opacity:0;transform:translateY(28px)}}
+@keyframes hero-settle{from{opacity:0;transform:scale(1.08)}}
+.hero-media img{animation:hero-settle 1.6s cubic-bezier(.2,.7,.2,1) both}
+.hero-inner>*{animation:hero-rise .8s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(150ms + var(--i,0) * 110ms)}
+.hero-inner>:nth-child(2){--i:1}
+.hero-inner>:nth-child(3){--i:3}
+.hero-inner>:nth-child(4){--i:4}
+.hero-inner>:nth-child(5){--i:5}
+.hero-inner>:nth-child(6){--i:6}
+.hero-sub{animation:hero-rise .8s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(150ms + 2 * 110ms)}
 .countdown{display:flex;flex-wrap:wrap;align-items:flex-end;gap:10px;margin-top:44px}
 .countdown>div{min-width:84px;padding:12px 14px;border:1px solid var(--night-line);border-radius:12px;background:rgba(20,32,27,.72);backdrop-filter:blur(6px)}
 .countdown strong{display:block;font:800 34px/1 var(--display);font-variation-settings:'wdth' 75;font-variant-numeric:tabular-nums;color:var(--on-dark)}
