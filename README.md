@@ -11,6 +11,7 @@ Open: http://localhost:8789
 - `src/index.html`, `src/build-sprint.html` — page templates.
 - `src/partials/` — shared head, header, footer, and mobile sticky CTA. `src/partner-logos.html` holds the partner strip.
 - `dist/styles.css`, `dist/script.js` — shared styles and script, inlined into each page at build time.
+- `tools/make-sketches.js` — regenerates the hand-drawn track sketches in `assets/tracks/` with the vendored rough.js (`node tools/make-sketches.js`).
 - `assets/` — source images copied into `dist/assets/` (photos, panel portraits, partner logos, tracks, social card, brand wordmark). Original event photos stay in `dist/assets/`.
 
 `build.py` fills the placeholders (`{{APPLY_URL}}`, `{{SITE_URL}}`, `{{SITE_PREFIX}}`, `{{GCAL_URL}}`), generates FAQPage structured data from the visible FAQ, inlines CSS/JS and small shared images, and writes `dist/index.html`, `dist/build-sprint/index.html`, `sitemap.xml`, and `moonshot-rodeo-2027.ics`. Everything is mirrored to the repository root, which GitHub Pages serves at https://arrowheadresearch.org/moonshot-rodeo/. Photos are served as files (not inlined) so they cache and get indexed.
