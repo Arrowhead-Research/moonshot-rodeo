@@ -70,7 +70,8 @@ address{font-style:normal;font-size:19px;line-height:1.5;margin:0 0 18px}
 .site-header{position:sticky;top:0;z-index:50;background:rgba(12,20,17,.86);backdrop-filter:saturate(1.4) blur(14px);-webkit-backdrop-filter:saturate(1.4) blur(14px);border-bottom:1px solid var(--night-line);color:var(--on-dark)}
 .header-inner{height:var(--header-h);max-width:1240px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;gap:24px}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none;white-space:nowrap}
-.brand-mark{color:var(--signal);font-size:18px;line-height:1}
+.brand-mark{color:var(--signal);width:26px;height:26px;flex:none;display:block}
+.footer-brand .brand-mark{width:28px;height:28px}
 .brand-name{font:800 19px/1 var(--display);font-variation-settings:'wdth' 80;letter-spacing:-.01em;text-transform:uppercase}
 .brand-by{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--on-dark-muted);padding-left:12px;margin-left:2px;border-left:1px solid var(--night-line)}
 .brand-by img{width:96px;height:auto;filter:invert(1) hue-rotate(180deg) brightness(1.15)}

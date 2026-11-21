@@ -6,7 +6,7 @@ mirrored to the repository root, which GitHub Pages serves.
 """
 from pathlib import Path
 from shutil import copytree
-from urllib.parse import quote_plus
+from urllib.parse import quote, quote_plus
 import base64
 import html
 import json
@@ -39,6 +39,17 @@ copytree('vendor', 'dist/vendor', dirs_exist_ok=True)
 partial = lambda name: Path(f'src/partials/{name}.html').read_text().strip()
 
 
+def favicon():
+    """Build the favicon data URI from the lasso mark on a dark rounded tile."""
+    mark = partial('lasso')
+    inner = mark[mark.index('>') + 1:mark.rindex('</svg>')]
+    svg = ("<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'>"
+           "<rect width='32' height='32' rx='7' fill='#0c1411'/>"
+           "<g fill='none' stroke='#f2b705' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'>"
+           + inner.replace('currentColor', '#f2b705').replace('"', "'") + "</g></svg>")
+    return 'data:image/svg+xml,' + quote(svg, safe=" =:/'")
+
+
 def faq_schema(page):
     """Generate FAQPage structured data from the visible FAQ so they never drift."""
     items = re.findall(r'<details class="faq-item"><summary>(.*?)</summary><div class="faq-a">(.*?)</div></details>', page, re.S)
@@ -59,8 +70,10 @@ def faq_schema(page):
 for source, destination, site_prefix in PAGES:
     page = Path(source).read_text()
     page = page.replace('<!-- HEAD_COMMON -->', partial('head-common'))
+    page = page.replace('{{FAVICON}}', favicon())
     page = page.replace('<!-- SITE_HEADER -->', partial('header'))
     page = page.replace('<!-- SITE_FOOTER -->', partial('footer'))
+    page = page.replace('<!-- LASSO -->', partial('lasso'))
     page = page.replace('<!-- STICKY_CTA -->', partial('sticky-cta'))
     page = page.replace('<!-- PARTNER_LOGOS -->', Path('src/partner-logos.html').read_text().strip())
     page = page.replace('<!-- FAQ_SCHEMA -->', faq_schema(page))
