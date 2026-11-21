@@ -1,74 +1,340 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#edf2f6"><title>Moonshot Rodeo | Arrowhead Research</title><!-- INLINE_STYLES --><style>
-.hero .hero-content h1{margin-bottom:18px}
-.hero-date{margin:0 0 0.875rem;color:var(--accent);font:600 clamp(17px,2.3vw,23px)/1.3 monospace}
-.partner-strip.partner-strip--centered{grid-template-columns:repeat(2,minmax(0,1fr));justify-items:center;gap:24px}
-.partner-strip .venue-map{width:min(100%,380px)}
-.venue-map iframe{display:block;width:100%;height:170px;border:1px solid var(--border);border-radius:2px}
-@media(max-width:700px){.partner-strip.partner-strip--centered{grid-template-columns:1fr}}
-.partner-strip--centered .veterans-center{width:fit-content;min-height:0;gap:12px;line-height:1.35}
-.veterans-center strong{font-size:14px}
-.hero-sketch{display:block;width:100%;height:345px}
-.hero-sketch text{font:italic 23px Georgia,serif}
-@media(max-width:1000px){.hero-sketch{height:310px}}
-@media(max-width:700px){.hero-sketch{height:245px}}
-.panel-portrait{display:block;width:64px;height:64px;object-fit:cover;border-radius:50%}
-.panel-person{display:grid;grid-template-columns:64px minmax(0,1fr);column-gap:14px;align-items:center}
-.recap-panelists .panel-person{grid-template-rows:auto auto;min-height:64px;margin-bottom:10px;align-content:center}
-.recap-panelists .panel-person dt{display:contents}
-.recap-panelists .panel-portrait{grid-row:span 2}
-.recap-panelists .panel-person dd{margin:0}
-.keynote .panel-person p{margin-bottom:0}
-.recap-panel-title{font-size:18px;margin:0 0 12px}
-/* Keep the slashes on the boundaries of three equal label columns. */
-.hero .hero-bottom{position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;text-align:center}
-.hero-bottom > span:nth-child(odd){padding-inline:6px}
-.hero-bottom > span[aria-hidden="true"]{position:absolute;top:50%;transform:translate(-50%,-50%)}
-.hero-bottom > span:nth-child(2){left:33.333333%}
-.hero-bottom > span:nth-child(4){left:66.666667%}
-@media(min-width:701px){
-  #mission{align-items:center}
-  #mission h2{margin-bottom:0}
-  #mission .mission-copy{padding-top:0}
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Moonshot Rodeo 2027 | Prototype Showcase for Military &amp; IC Builders</title>
+<meta name="description" content="Military and intelligence community builders present prototypes and field solutions to an expert panel. Moonshot Rodeo: Feb 4, 2027, Alexandria, VA.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="{{SITE_URL}}">
+<meta name="theme-color" content="#0c1411">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Moonshot Rodeo by Arrowhead Research">
+<meta property="og:title" content="Moonshot Rodeo 2027: Present your prototype to an expert panel">
+<meta property="og:description" content="Military and intelligence community builders present prototypes and field solutions to experts in engineering, research, and industry. February 4, 2027, Alexandria, VA.">
+<meta property="og:url" content="{{SITE_URL}}">
+<meta property="og:image" content="{{SITE_URL}}assets/social/moonshot-rodeo-og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="A presenter demonstrates a drone prototype to attendees at Moonshot Rodeo 2026">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Moonshot Rodeo 2027: Present your prototype to an expert panel">
+<meta name="twitter:description" content="A prototype showcase for military and intelligence community builders. February 4, 2027, Alexandria, VA.">
+<meta name="twitter:image" content="{{SITE_URL}}assets/social/moonshot-rodeo-og.jpg">
+<!-- HEAD_COMMON -->
+<link rel="preload" as="image" href="./assets/photos/demo-floor-2026.webp" imagesrcset="./assets/photos/demo-floor-2026-800.webp 800w, ./assets/photos/demo-floor-2026.webp 1600w" imagesizes="(max-width: 900px) 100vw, 55vw" fetchpriority="high">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://arrowheadresearch.org/#org",
+      "name": "Arrowhead Research",
+      "url": "https://arrowheadresearch.org",
+      "email": "info@arrowheadresearch.org"
+    },
+    {
+      "@type": "Event",
+      "@id": "{{SITE_URL}}#event-2027",
+      "name": "Moonshot Rodeo 2027",
+      "description": "A prototype showcase where military and intelligence community builders present prototypes, existing projects, and field solutions to a panel of experts in engineering, research, and industry for structured technical feedback.",
+      "startDate": "2027-02-04",
+      "endDate": "2027-02-04",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "url": "{{SITE_URL}}",
+      "image": ["{{SITE_URL}}assets/social/moonshot-rodeo-og.jpg"],
+      "location": {
+        "@type": "Place",
+        "name": "Virginia Tech Innovation Campus, Academic Building One",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "3625 Potomac Ave",
+          "addressLocality": "Alexandria",
+          "addressRegion": "VA",
+          "postalCode": "22305",
+          "addressCountry": "US"
+        }
+      },
+      "organizer": { "@id": "https://arrowheadresearch.org/#org" },
+      "subEvent": { "@id": "{{SITE_URL}}build-sprint/#event-sprint-2027" }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "{{SITE_URL}}#website",
+      "name": "Moonshot Rodeo",
+      "url": "{{SITE_URL}}",
+      "publisher": { "@id": "https://arrowheadresearch.org/#org" }
+    }
+  ]
 }
-.hero-credentials{margin:0 0 20px;color:var(--muted);font:13px/1.55 monospace}
-.hero-credentials .text-link{font:inherit}
-</style>
-<script defer src="./vendor/rough.min.js"></script>
-<script defer src="./vendor/hero-sketch.js"></script>
-</head><body id="top">
-<a class="skip" href="#main">Skip to content</a><header><a class="brand site-brand" href="/" aria-label="Moonshot Rodeo home"><img src="assets/logos/arrowhead-header.png" alt="Arrowhead Research"></a><nav aria-label="Main navigation"><a href="#mission">Mission</a><a href="#showcase">The event</a><a href="/build-sprint/">Build sprint</a><a href="#recap">Past presentations</a><a href="#faq">FAQ</a><a class="nav-cta" href="https://docs.google.com/forms/d/e/1FAIpQLSf_Ubf0xR1-YBlCTn87MaXaGOxG4RZdPN51F5zK_tqhxJaBOA/viewform?usp=dialog" target="_blank" rel="noopener">Get involved</a></nav><button class="menu" aria-expanded="false" aria-label="Open navigation">Menu +</button></header>
-<main id="main"><section class="hero wrap"><div class="hero-layout"><div class="hero-content"><h1>Moonshot<br><em>Rodeo.</em><sup>™</sup></h1><p class="hero-date"><time datetime="2027-02-04">February 4, 2027</time></p><p class="hero-credentials">In partnership with Boeing Center for Veteran and Military Families<br>Hosted at the <a class="text-link" href="#venue">Virginia Tech Innovation Campus</a></p><p class="hero-line">Present your prototype.<br>Get expert feedback.</p><p class="hero-description">Hardware, software, or a field-tested fix. If you solved a hard problem, we want to hear the story.</p><p class="hero-description">Military and intelligence community builders present their work to experts in engineering, research, and industry.</p><div class="actions"><a class="button" href="https://docs.google.com/forms/d/e/1FAIpQLSf_Ubf0xR1-YBlCTn87MaXaGOxG4RZdPN51F5zK_tqhxJaBOA/viewform?usp=dialog" target="_blank" rel="noopener">Get involved</a><a class="text-link" href="#recap">See past presentations</a></div></div><figure class="hero-figure">
-<svg class="hero-sketch" viewBox="43 77 454 251" width="540" height="345" role="img" aria-label="Hand-drawn whiteboard sketch of a field communications prototype, with a field node, LoRa mesh, and drone feeding into a second version."></svg>
-</figure></div><div class="hero-bottom"><span>OPERATIONAL EXPERIENCE</span><span aria-hidden="true">/</span><span>ENGINEERING CURIOSITY</span><span aria-hidden="true">/</span><span>TECHNICAL FEEDBACK</span></div></section>
-<div class="partner-strip partner-strip--centered wrap">
-  <div class="venue-map" id="venue">
-    <iframe src="https://www.google.com/maps?q=Virginia+Tech+Academic+Building+One%2C+3625+Potomac+Ave%2C+Alexandria%2C+VA+22305&amp;output=embed" title="Map of Virginia Tech Innovation Campus, Academic Building One, Alexandria, Virginia" loading="lazy" width="380" height="170"></iframe>
+</script>
+<!-- FAQ_SCHEMA -->
+</head>
+<body id="top" class="page-home">
+<a class="skip" href="#main">Skip to content</a>
+<!-- SITE_HEADER -->
+<main id="main">
+
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero-media">
+    <img src="./assets/photos/demo-floor-2026.webp" srcset="./assets/photos/demo-floor-2026-800.webp 800w, ./assets/photos/demo-floor-2026.webp 1600w" sizes="(max-width: 900px) 100vw, 55vw" width="1600" height="900" alt="A presenter walks two attendees through a drone fire-control prototype at Moonshot Rodeo 2026" fetchpriority="high" decoding="async">
   </div>
-  <a class="host-logo vt-logo veterans-center" href="https://dcarea.vt.edu/veterans-center.html" target="_blank" rel="noopener" aria-label="Boeing Center for Veteran Transition and Military Families, Virginia Tech (opens in a new tab)"><img src="assets/logos/virginia-tech.svg" alt=""><strong>Boeing Center for Veteran<br>Transition and Military Families</strong></a></div>
-<section class="wrap section mission" id="mission"><div><h2>Engineering informed<br>by <span>operational experience.</span></h2></div><div class="mission-copy"><p class="lead">Moonshot Rodeo gives military and intelligence community builders a place to present their technical work.</p><p>Moonshot Rodeo brings nontraditional military and intelligence community technical talent into the same room as experts from defense, academia, industry, venture, and policy.</p><p>Presenters explain how their prototypes or field solutions work and defend their decisions to a panel of experts.</p><a class="text-link" href="#showcase">How the event works</a></div></section>
-<section class="showcase-section" id="showcase"><div class="wrap section"><h2>Three ways to present.<br>One stage.</h2><p class="lead">Build a prototype, bring an existing project, or share a field solution. All three ways lead to the same stage and expert panel at Moonshot Rodeo.</p><div class="track-grid"><article class="track"><h3>Build Sprint</h3><p>Build your idea in two weeks at BuildMo, then present what you built. Get focused time, access to shared tools, and expert support to push your project forward. Bring your own materials: participants source and fund their own parts and components.</p><a class="text-link" href="./build-sprint/#build-sprint">Learn more</a></article><article class="track"><h3>Bring Your Own</h3><p>Already have a prototype? Present your project directly at the event.</p><a class="text-link" href="./build-sprint/#bring-your-own">Learn more</a></article><article class="track"><h3>Field Solutions</h3><p>Not every breakthrough is a device. Present a creative way you solved a real problem in the field, whether that's a workaround, a process, a tactic, or an improvised tool, and walk the panel through your thinking.</p><a class="text-link" href="./build-sprint/#field-solutions">Learn more</a></article></div><article class="prototype-defense"><h3>Defend your approach.</h3><p>Participants defend their prototype or field solution to a panel of experts in engineering, research, and industry, who question the approach and give structured feedback.</p><p>The 2026 event used eight-minute presentations before the panel discussion.</p></article><figure class="wide-photo"><img src="assets/showcase.jpg" alt="Presenters discussing their work with the 2026 expert panel" loading="lazy"><figcaption><span>MOONSHOT RODEO / 06 FEB 2026</span><span>Presenters and the expert panel.</span></figcaption></figure></div></section>
-<section class="wrap section" id="recap"><div class="section-heading"><div><h2>Seven prototypes.<br><span>Direct expert feedback.</span></h2></div><p>February 6, 2026<br><a class="text-link" href="https://www.google.com/maps/search/?api=1&amp;query=Virginia+Tech+Academic+Building+One%2C+3625+Potomac+Ave%2C+Alexandria%2C+VA+22305" target="_blank" rel="noopener">Virginia Tech Innovation Campus</a><br>Alexandria, Virginia</p></div><div class="recap-layout"><div><p class="lead">Seven teams presented prototypes developed from problems they encountered during military service.</p><p>Presenters discussed early research and systems they had tested in the field.</p><div class="stats"><div><strong>07</strong><span>PROTOTYPE PRESENTATIONS</span></div><div><strong>08<span> MIN</span></strong><span>PRESENTATION FORMAT</span></div></div><div class="keynote"><div class="panel-person"><img class="panel-portrait" src="./assets/panel/alex-miller.jpg" alt="Dr. Alex Miller" loading="lazy" width="64" height="64"><div><h3>Dr. Alex Miller</h3><p>Keynote · U.S. Army Chief Technology Officer at the time of the event</p></div></div><p>He urged presenters to explain engineering tradeoffs and operational value clearly to customers and other audiences.</p></div><div class="recap-panelists">
-<h3 class="recap-panel-title">Expert panel</h3>
-<dl>
-  <div class="panel-person"><dt><img class="panel-portrait" src="./assets/panel/bill-wall.jpg" alt="Bill Wall" loading="lazy" width="64" height="64">Bill Wall</dt>
-  <dd>Chief Executive Officer, Accrete AI Government</dd></div>
-  <div class="panel-person"><dt><img class="panel-portrait" src="./assets/panel/chris-lynch.jpg" alt="Chris Lynch" loading="lazy" width="64" height="64">Chris Lynch</dt>
-  <dd>Chief Executive Officer, Rebellion Defense</dd></div>
-  <div class="panel-person"><dt><img class="panel-portrait" src="./assets/panel/jay-long.jpg" alt="Jay Long" loading="lazy" width="64" height="64">Jay Long</dt>
-  <dd>Co-Founder &amp; COO, Parlay Finance</dd></div>
-  <div class="panel-person"><dt><img class="panel-portrait" src="./assets/panel/kevin-horrigan.jpg" alt="Kevin Horrigan" loading="lazy" width="64" height="64">Kevin Horrigan</dt>
-  <dd>Biomedical Engineer, George Washington University</dd></div>
-  <div class="panel-person"><dt><img class="panel-portrait" src="./assets/panel/rich-may.jpg" alt="Rich May" loading="lazy" width="64" height="64">Rich May</dt>
-  <dd>Senior Research Program Manager, Engineering Technical Development, The Boeing Company</dd></div>
-</dl>
-</div></div><div class="prototype-list"><ol>
-<li style="display:block;padding:0"><details style="border:0"><summary style="display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:16px"><span>01</span>Autonomous unmanned systems<span class="disclosure-icon" aria-hidden="true" style="font:22px/1 Arial">+</span></summary><p>William Love, an active-duty U.S. Army Noncommissioned Officer in Charge of Lightning Labs, the innovation lab for the 25th Infantry Division, presented the ERNA Fire Control System: Asymmetric Drone Guidance &amp; Operator Survivability. The project demonstrated a cost-effective retrofit guidance system that uses optical flow navigation to guide unmodified commercial drones in GPS-denied environments. It also physically decouples the human operator from the RF signature.</p></details></li>
-<li style="display:block;padding:0"><details style="border:0"><summary style="display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:16px"><span>02</span>AI-augmented open-source development<span class="disclosure-icon" aria-hidden="true" style="font:22px/1 Arial">+</span></summary><p>Josh Noll, Data Systems Engineer for 3rd Special Forces Group, U.S. Army, presented Goose in the Machine. The talk traced a first open-source code contribution through a small bug and work with Goose, an open-source general-purpose AI agent developed by Block. It followed the contribution from understanding the problem and locating the relevant function through implementing the fix and securing project approval, and showed how AI can serve as a technical coach rather than a shortcut.</p></details></li>
-<li style="display:block;padding:0"><details style="border:0"><summary style="display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:16px"><span>03</span>Embedded systems security<span class="disclosure-icon" aria-hidden="true" style="font:22px/1 Arial">+</span></summary><p>Matt Lombardo, an embedded systems and security engineer for the U.S. Army, presented a retrospective on Arrowhead Research’s Spring 2025 MITRE Embedded Capture the Flag (eCTF) pilot. The exercise brought together participants from operational, academic, and engineering backgrounds to analyze and work against secure embedded systems in a constrained, time-bounded setting. The work looked at how team composition and workflow influenced vulnerability discovery, and at what it would take to scale the pilot into a repeatable platform for technical talent development.</p></details></li>
-<li style="display:block;padding:0"><details style="border:0"><summary style="display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:16px"><span>04</span>Android malware detection<span class="disclosure-icon" aria-hidden="true" style="font:22px/1 Arial">+</span></summary><p>Max Kalichenko, an AI Technician at the U.S. Army Artificial Intelligence Integration Center (AI2C), presented Project Totem. The project is a malware detection tool for Android devices that scans the system and reports a security status. It analyzes applications and device behavior for indicators of malicious activity, with the aim of remaining lightweight enough for everyday use.</p></details></li>
-<li style="display:block;padding:0"><details style="border:0"><summary style="display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:16px"><span>05</span>LoRa-based personnel tracking<span class="disclosure-icon" aria-hidden="true" style="font:22px/1 Arial">+</span></summary><p>The Virginia Tech Army ROTC team presented Hokie Indago, a personnel-tracking system built from commercial off-the-shelf parts. Wearable LoRa nodes in a Meshtastic mesh stream real-time GNSS position data into a Windows-based PyQt5 interface over open-source maps, for command-and-control accountability in austere cadet training environments. The team was Hunter Lostumo, Benjamin Hardin, Tyler Grogan, Kyle Schmidt, Nate Lagrange, and Luke Moore.</p></details></li>
-<li style="display:block;padding:0"><details style="border:0"><summary style="display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:16px"><span>06</span>Contested RF field networking<span class="disclosure-icon" aria-hidden="true" style="font:22px/1 Arial">+</span></summary><p>Charles “Jake” Wright, an active-duty U.S. Petty Officer First Class serving as a lead military targeter in the Navy’s Undersea Warfare enterprise, presented a retrospective on Black Relay. Black Relay was an Arrowhead Research technical field exercise that followed a development sprint with live red-team testing and controlled operational pacing in a contested RF and communications environment. Field testing took place in and around Southern Pines, North Carolina, from August through November 2025.</p></details></li>
-<li style="display:block;padding:0"><details style="border:0"><summary style="display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:16px"><span>07</span>Spectrum exploitation research<span class="disclosure-icon" aria-hidden="true" style="font:22px/1 Arial">+</span></summary><p>Travis Williams, an active-duty U.S. Army Master Sergeant and Director of Strategic Partnerships at Arrowhead Research, presented Velvet Dynamo. The project examined Automatic Dependent Surveillance–Broadcast (ADS-B) systems used by commercial aircraft for real-time tracking, and the use of the 1090 MHz ADS-B channel as a carrier for other data. Williams also serves as a Military Science Instructor with the Virginia Tech Reserve Officer Training Corps.</p></details></li>
-</ol></div></div></section>
-<section class="wrap section" id="involved"><h2>Present, mentor,<br>or support the event.</h2><div class="involvement-grid"><a class="involvement" href="https://docs.google.com/forms/d/e/1FAIpQLSf_Ubf0xR1-YBlCTn87MaXaGOxG4RZdPN51F5zK_tqhxJaBOA/viewform?usp=dialog" target="_blank" rel="noopener"><h3>Show your work.</h3><p>Tell us what you're building and apply to present.</p><span class="text-link">Introduce your project</span></a><a class="involvement" href="mailto:info@arrowheadresearch.org?subject=Moonshot%20Rodeo%20Mentor"><h3>Mentor a builder.</h3><p>Offer technical feedback and help presenters explain their engineering decisions.</p><span class="text-link">Connect as a mentor</span></a><a class="involvement" href="mailto:info@arrowheadresearch.org?subject=Moonshot%20Rodeo%20Partnership"><h3>Become a partner.</h3><p>Ask how your organization can support the event or connect presenters with research opportunities.</p><span class="text-link">Explore a partnership</span></a></div><p class="event-note">The next Moonshot Rodeo is February 4, 2027. <a class="text-link" href="https://docs.google.com/forms/d/e/1FAIpQLSf_Ubf0xR1-YBlCTn87MaXaGOxG4RZdPN51F5zK_tqhxJaBOA/viewform?usp=dialog" target="_blank" rel="noopener">Apply to participate</a>.</p></section>
-<section class="wrap section faq" id="faq"><div><h2>Common questions.</h2><a class="text-link" href="mailto:moonshotrodeo@arrowheadresearch.org">moonshotrodeo@arrowheadresearch.org</a></div><div><details><summary>Is this a competition?<span class="disclosure-icon">+</span></summary><p>No. Moonshot Rodeo isn’t a competition. There are no winners or rankings; it’s a chance to network with builders, mentors, and experts and get direct feedback on your work.</p></details><details><summary>Do I need to join the build sprint?<span class="disclosure-icon">+</span></summary><p>No. The January 25–February 3, 2027 build sprint is optional. It leads into presentation day on February 4. <a class="text-link" href="https://docs.google.com/forms/d/e/1FAIpQLSf_Ubf0xR1-YBlCTn87MaXaGOxG4RZdPN51F5zK_tqhxJaBOA/viewform?usp=dialog" target="_blank" rel="noopener">Apply to build</a> with access to shared tools and expert support — you bring your own materials — or bring an existing project, or present a creative solution to a problem in the field. All three ways to present share the same stage and expert panel. <a href="/build-sprint/">Read the sprint details.</a></p></details><details><summary>Do I need a physical prototype?<span class="disclosure-icon">+</span></summary><p>No. We also welcome presentations on creative solutions to real problems, like field workarounds, new processes, or improvised tools. If you solved something hard, it fits.</p></details><details><summary>What kinds of projects fit?<span class="disclosure-icon">+</span></summary><p>The 2026 projects covered autonomy, software, security, tracking, and RF systems. We also welcome field workarounds, processes, tactics, and improvised tools. The common thread is solving real operational problems.</p></details><details><summary>Can I help without a prototype?<span class="disclosure-icon">+</span></summary><p>Yes. You can present a field solution without a physical prototype, or reach out about mentorship or partnership opportunities.</p></details></div></section><section class="closing wrap"><h2>Have a project or field solution<br><span>you want to present?</span></h2><a class="button" href="https://docs.google.com/forms/d/e/1FAIpQLSf_Ubf0xR1-YBlCTn87MaXaGOxG4RZdPN51F5zK_tqhxJaBOA/viewform?usp=dialog" target="_blank" rel="noopener">Apply to present</a></section></main><footer class="site-footer wrap"><section class="footer-partners" aria-labelledby="partners-title"><h2 id="partners-title">Partners</h2><!-- PARTNER_LOGOS --></section><div class="footer-bottom"><a class="brand" href="#top">MOONSHOT RODEO™</a><span>Engineering innovation from the battlefield.</span><a class="text-link" href="https://arrowheadresearch.org">Arrowhead Research</a></div></footer><!-- INLINE_SCRIPT --></body></html>
+  <div class="wrap hero-inner">
+    <p class="kicker"><span class="pulse" aria-hidden="true"></span>Applications open · Moonshot Rodeo 2027</p>
+    <h1 id="hero-title" class="hero-title">Moonshot Rodeo<span class="tm">™</span><span class="hero-sub">The prototype showcase for military and intelligence community builders.</span></h1>
+    <p class="hero-lede">Bring the hardware, software, or field-tested fix you built to solve a hard problem. Present it to experts in engineering, research, and industry, then defend your decisions and get direct technical feedback.</p>
+    <ul class="hero-meta" aria-label="Event details">
+      <li><svg aria-hidden="true" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><time datetime="2027-02-04">Thursday, February 4, 2027</time></li>
+      <li><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><a href="#venue">Virginia Tech Innovation Campus, Alexandria, VA</a></li>
+    </ul>
+    <div class="hero-actions">
+      <a class="btn btn-primary btn-lg" href="{{APPLY_URL}}" target="_blank" rel="noopener" data-cta="hero-apply">Apply to present <span aria-hidden="true">→</span></a>
+      <a class="btn btn-ghost btn-lg" href="#recap">See the 2026 presentations</a>
+    </div>
+    <div class="countdown" data-countdown="2027-02-04T09:00:00-05:00" aria-live="polite">
+      <div><strong data-unit="days">—</strong><span>days</span></div>
+      <div><strong data-unit="hours">—</strong><span>hours</span></div>
+      <div><strong data-unit="minutes">—</strong><span>minutes</span></div>
+      <p class="countdown-label">until presentation day</p>
+    </div>
+  </div>
+</section>
+
+<section class="facts" aria-label="Moonshot Rodeo at a glance">
+  <div class="wrap facts-grid">
+    <div><span class="label">In partnership with</span><strong>Boeing Center for Veteran Transition and Military Families</strong></div>
+    <div><span class="label">Ways to present</span><strong>3 tracks, one stage</strong></div>
+    <div><span class="label">Optional build sprint</span><strong>Jan 25 – Feb 3, 2027</strong></div>
+    <div><span class="label">Format</span><strong>Feedback, not a competition</strong></div>
+  </div>
+</section>
+
+<section class="section" id="why" aria-labelledby="why-title">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Why present</p>
+      <h2 id="why-title">Engineering informed by operational experience.</h2>
+      <p class="section-intro">Moonshot Rodeo brings nontraditional military and intelligence community technical talent into the same room as experts from defense, academia, industry, venture, and policy.</p>
+    </div>
+    <div class="benefit-grid">
+      <article class="benefit reveal">
+        <span class="benefit-num" aria-hidden="true">01</span>
+        <h3>Get expert technical feedback</h3>
+        <p>A panel of experts in engineering, research, and industry questions your approach and gives structured feedback on your work.</p>
+      </article>
+      <article class="benefit reveal">
+        <span class="benefit-num" aria-hidden="true">02</span>
+        <h3>Defend your design decisions</h3>
+        <p>Explain how your prototype or field solution works, the tradeoffs you made, and why it matters operationally.</p>
+      </article>
+      <article class="benefit reveal">
+        <span class="benefit-num" aria-hidden="true">03</span>
+        <h3>Meet builders, mentors, and experts</h3>
+        <p>There are no winners or rankings. It’s a chance to network across defense, academia, industry, venture, and policy.</p>
+      </article>
+      <article class="benefit reveal">
+        <span class="benefit-num" aria-hidden="true">04</span>
+        <h3>Any kind of hard problem fits</h3>
+        <p>Hardware, software, a process, a tactic, or an improvised tool. If you solved something hard, we want to hear the story.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section section-dark" id="tracks" aria-labelledby="tracks-title">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Ways to present</p>
+      <h2 id="tracks-title">Three ways to present. One stage.</h2>
+      <p class="section-intro">Build a prototype, bring an existing project, or share a field solution. All three lead to the same stage and expert panel.</p>
+    </div>
+    <div class="track-grid">
+      <article class="track-card reveal">
+        <figure><img src="./assets/photos/drone-fabrication.webp" width="1200" height="678" alt="Gantry fabrication machines building drones over glowing build plates" loading="lazy" decoding="async"></figure>
+        <div class="track-body">
+          <p class="track-tag">Track 01 · Jan 25 – Feb 3</p>
+          <h3>Build Sprint</h3>
+          <p>Build your idea in two weeks at BuildMo with shared tools and expert support, then present what you built. You source and fund your own parts and components.</p>
+          <a class="arrow-link" href="/build-sprint/#build-sprint">Explore the build sprint <span aria-hidden="true">→</span></a>
+        </div>
+      </article>
+      <article class="track-card reveal">
+        <figure><img src="./assets/photos/prototype-hardware-2026.webp" width="720" height="450" alt="FPV goggles, a flight controller, and a drone frame on a demo table at Moonshot Rodeo 2026" loading="lazy" decoding="async"></figure>
+        <div class="track-body">
+          <p class="track-tag">Track 02</p>
+          <h3>Bring Your Own</h3>
+          <p>Already have a prototype? Skip the sprint and present your existing project directly at the event.</p>
+          <a class="arrow-link" href="/build-sprint/#bring-your-own">How Bring Your Own works <span aria-hidden="true">→</span></a>
+        </div>
+      </article>
+      <article class="track-card reveal">
+        <figure class="figure-paper"><img src="./assets/tracks/field-notebook.svg" alt="Hand-drawn field notebook with a checklist and a map showing a marked route" loading="lazy" decoding="async"></figure>
+        <div class="track-body">
+          <p class="track-tag">Track 03</p>
+          <h3>Field Solutions</h3>
+          <p>Not every breakthrough is a device. Walk the panel through a workaround, process, tactic, or improvised tool you used to solve a real problem.</p>
+          <a class="arrow-link" href="/build-sprint/#field-solutions">How Field Solutions works <span aria-hidden="true">→</span></a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="how" aria-labelledby="how-title">
+  <div class="wrap how-layout">
+    <div>
+      <p class="eyebrow">How it works</p>
+      <h2 id="how-title">From application to the expert panel.</h2>
+      <ol class="timeline">
+        <li class="reveal"><span class="timeline-when">Now</span><h3>Apply with your project</h3><p>Tell us what you’re building or what you solved, which track fits, and what support would help.</p><a class="arrow-link" href="{{APPLY_URL}}" target="_blank" rel="noopener" data-cta="timeline-apply">Open the application <span aria-hidden="true">→</span></a></li>
+        <li class="reveal"><span class="timeline-when">Jan 25 – Feb 3, 2027</span><h3>Optional build sprint</h3><p>Focused build time at BuildMo in Alexandria with shared tools and expert advisors.</p></li>
+        <li class="reveal"><span class="timeline-when">Feb 4, 2027</span><h3>Present and defend your approach</h3><p>Present to the expert panel, answer their questions, and leave with structured feedback. The 2026 event used eight-minute presentations before the panel discussion.</p></li>
+      </ol>
+    </div>
+    <figure class="photo-frame reveal">
+      <img src="./assets/photos/expert-panel-2026.webp" width="1400" height="788" alt="Presenters take questions from the audience and expert panel at Moonshot Rodeo 2026" loading="lazy" decoding="async">
+      <figcaption>Questions from the panel, Moonshot Rodeo 2026</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="section section-tint" id="recap" aria-labelledby="recap-title">
+  <div class="wrap">
+    <div class="section-head section-head-split">
+      <div>
+        <p class="eyebrow">2026 recap · February 6, 2026</p>
+        <h2 id="recap-title">Seven prototypes. Direct expert feedback.</h2>
+      </div>
+      <p class="section-intro">Seven teams presented prototypes developed from problems they encountered during military service, including early research and systems they had tested in the field.</p>
+    </div>
+
+    <div class="recap-top">
+      <figure class="photo-frame reveal">
+        <img src="./assets/photos/presenter-stage-2026.webp" width="1400" height="933" alt="A presenter speaks to the audience at the Virginia Tech Innovation Campus during Moonshot Rodeo 2026" loading="lazy" decoding="async">
+        <figcaption>February 6, 2026 · Virginia Tech Innovation Campus</figcaption>
+      </figure>
+      <div class="recap-side">
+        <dl class="stats">
+          <div><dt>Prototype presentations</dt><dd>7</dd></div>
+          <div><dt>Minutes per presentation</dt><dd>8</dd></div>
+        </dl>
+        <div class="keynote">
+          <img class="portrait" src="./assets/panel/alex-miller.jpg" alt="Dr. Alex Miller" loading="lazy" width="72" height="72">
+          <div>
+            <p class="label">Keynote</p>
+            <h3>Dr. Alex Miller</h3>
+            <p class="muted">U.S. Army Chief Technology Officer at the time of the event</p>
+            <p>He urged presenters to explain engineering tradeoffs and operational value clearly to customers and other audiences.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="subhead">2026 expert panel</h3>
+    <ul class="panel-grid">
+      <li><img class="portrait" src="./assets/panel/bill-wall.jpg" alt="" loading="lazy" width="72" height="72"><div><strong>Bill Wall</strong><span>Chief Executive Officer, Accrete AI Government</span></div></li>
+      <li><img class="portrait" src="./assets/panel/chris-lynch.jpg" alt="" loading="lazy" width="72" height="72"><div><strong>Chris Lynch</strong><span>Chief Executive Officer, Rebellion Defense</span></div></li>
+      <li><img class="portrait" src="./assets/panel/jay-long.jpg" alt="" loading="lazy" width="72" height="72"><div><strong>Jay Long</strong><span>Co-Founder &amp; COO, Parlay Finance</span></div></li>
+      <li><img class="portrait" src="./assets/panel/kevin-horrigan.jpg" alt="" loading="lazy" width="72" height="72"><div><strong>Kevin Horrigan</strong><span>Biomedical Engineer, George Washington University</span></div></li>
+      <li><img class="portrait" src="./assets/panel/rich-may.jpg" alt="" loading="lazy" width="72" height="72"><div><strong>Rich May</strong><span>Senior Research Program Manager, Engineering Technical Development, The Boeing Company</span></div></li>
+    </ul>
+
+    <h3 class="subhead">2026 presentations</h3>
+    <div class="presentations">
+      <details class="presentation"><summary><span class="p-num">01</span><span class="p-title">Autonomous unmanned systems<small>ERNA Fire Control System · William Love</small></span><span class="p-icon" aria-hidden="true"></span></summary><div class="p-body"><p>William Love, an active-duty U.S. Army Noncommissioned Officer in Charge of Lightning Labs, the innovation lab for the 25th Infantry Division, presented the ERNA Fire Control System: Asymmetric Drone Guidance &amp; Operator Survivability. The project demonstrated a cost-effective retrofit guidance system that uses optical flow navigation to guide unmodified commercial drones in GPS-denied environments. It also physically decouples the human operator from the RF signature.</p></div></details>
+      <details class="presentation"><summary><span class="p-num">02</span><span class="p-title">AI-augmented open-source development<small>Goose in the Machine · Josh Noll</small></span><span class="p-icon" aria-hidden="true"></span></summary><div class="p-body"><p>Josh Noll, Data Systems Engineer for 3rd Special Forces Group, U.S. Army, presented Goose in the Machine. The talk traced a first open-source code contribution through a small bug and work with Goose, an open-source general-purpose AI agent developed by Block. It followed the contribution from understanding the problem and locating the relevant function through implementing the fix and securing project approval, and showed how AI can serve as a technical coach rather than a shortcut.</p></div></details>
+      <details class="presentation"><summary><span class="p-num">03</span><span class="p-title">Embedded systems security<small>MITRE eCTF pilot retrospective · Matt Lombardo</small></span><span class="p-icon" aria-hidden="true"></span></summary><div class="p-body"><p>Matt Lombardo, an embedded systems and security engineer for the U.S. Army, presented a retrospective on Arrowhead Research’s Spring 2025 MITRE Embedded Capture the Flag (eCTF) pilot. The exercise brought together participants from operational, academic, and engineering backgrounds to analyze and work against secure embedded systems in a constrained, time-bounded setting. The work looked at how team composition and workflow influenced vulnerability discovery, and at what it would take to scale the pilot into a repeatable platform for technical talent development.</p></div></details>
+      <details class="presentation"><summary><span class="p-num">04</span><span class="p-title">Android malware detection<small>Project Totem · Max Kalichenko</small></span><span class="p-icon" aria-hidden="true"></span></summary><div class="p-body"><p>Max Kalichenko, an AI Technician at the U.S. Army Artificial Intelligence Integration Center (AI2C), presented Project Totem. The project is a malware detection tool for Android devices that scans the system and reports a security status. It analyzes applications and device behavior for indicators of malicious activity, with the aim of remaining lightweight enough for everyday use.</p></div></details>
+      <details class="presentation"><summary><span class="p-num">05</span><span class="p-title">LoRa-based personnel tracking<small>Hokie Indago · Virginia Tech Army ROTC</small></span><span class="p-icon" aria-hidden="true"></span></summary><div class="p-body"><p>The Virginia Tech Army ROTC team presented Hokie Indago, a personnel-tracking system built from commercial off-the-shelf parts. Wearable LoRa nodes in a Meshtastic mesh stream real-time GNSS position data into a Windows-based PyQt5 interface over open-source maps, for command-and-control accountability in austere cadet training environments. The team was Hunter Lostumo, Benjamin Hardin, Tyler Grogan, Kyle Schmidt, Nate Lagrange, and Luke Moore.</p></div></details>
+      <details class="presentation"><summary><span class="p-num">06</span><span class="p-title">Contested RF field networking<small>Black Relay retrospective · Charles “Jake” Wright</small></span><span class="p-icon" aria-hidden="true"></span></summary><div class="p-body"><p>Charles “Jake” Wright, an active-duty U.S. Petty Officer First Class serving as a lead military targeter in the Navy’s Undersea Warfare enterprise, presented a retrospective on Black Relay. Black Relay was an Arrowhead Research technical field exercise that followed a development sprint with live red-team testing and controlled operational pacing in a contested RF and communications environment. Field testing took place in and around Southern Pines, North Carolina, from August through November 2025.</p></div></details>
+      <details class="presentation"><summary><span class="p-num">07</span><span class="p-title">Spectrum exploitation research<small>Velvet Dynamo · Travis Williams</small></span><span class="p-icon" aria-hidden="true"></span></summary><div class="p-body"><p>Travis Williams, an active-duty U.S. Army Master Sergeant and Director of Strategic Partnerships at Arrowhead Research, presented Velvet Dynamo. The project examined Automatic Dependent Surveillance–Broadcast (ADS-B) systems used by commercial aircraft for real-time tracking, and the use of the 1090 MHz ADS-B channel as a carrier for other data. Williams also serves as a Military Science Instructor with the Virginia Tech Reserve Officer Training Corps.</p></div></details>
+    </div>
+    <div class="inline-cta reveal">
+      <p><strong>Your project could be on this list in 2027.</strong> Tell us what you’re building.</p>
+      <a class="btn btn-primary" href="{{APPLY_URL}}" target="_blank" rel="noopener" data-cta="recap-apply">Apply to present <span aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="involved" aria-labelledby="involved-title">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Get involved</p>
+      <h2 id="involved-title">Present, mentor, or support the event.</h2>
+    </div>
+    <div class="involve-grid">
+      <a class="involve-card involve-card-primary reveal" href="{{APPLY_URL}}" target="_blank" rel="noopener" data-cta="involve-present">
+        <h3>Show your work</h3>
+        <p>Tell us what you’re building and apply to present on February 4, 2027.</p>
+        <span class="arrow-link">Introduce your project <span aria-hidden="true">→</span></span>
+      </a>
+      <a class="involve-card reveal" href="mailto:info@arrowheadresearch.org?subject=Moonshot%20Rodeo%20Mentor" data-cta="involve-mentor">
+        <h3>Mentor a builder</h3>
+        <p>Offer technical feedback and help presenters explain their engineering decisions.</p>
+        <span class="arrow-link">Connect as a mentor <span aria-hidden="true">→</span></span>
+      </a>
+      <a class="involve-card reveal" href="mailto:info@arrowheadresearch.org?subject=Moonshot%20Rodeo%20Partnership" data-cta="involve-partner">
+        <h3>Become a partner</h3>
+        <p>Ask how your organization can support the event or connect presenters with research opportunities.</p>
+        <span class="arrow-link">Explore a partnership <span aria-hidden="true">→</span></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section section-tint" id="venue" aria-labelledby="venue-title">
+  <div class="wrap venue-layout">
+    <div>
+      <p class="eyebrow">Venue</p>
+      <h2 id="venue-title">Virginia Tech Innovation Campus</h2>
+      <address>Academic Building One<br>3625 Potomac Ave<br>Alexandria, VA 22305</address>
+      <p>Hosted in partnership with the Boeing Center for Veteran Transition and Military Families at Virginia Tech.</p>
+      <div class="venue-actions">
+        <a class="btn btn-outline" href="https://www.google.com/maps/search/?api=1&amp;query=Virginia+Tech+Academic+Building+One%2C+3625+Potomac+Ave%2C+Alexandria%2C+VA+22305" target="_blank" rel="noopener">Get directions</a>
+        <a class="btn btn-outline" href="./moonshot-rodeo-2027.ics" download data-cta="ics">Add to calendar</a>
+      </div>
+      <a class="host-logo" href="https://dcarea.vt.edu/veterans-center.html" target="_blank" rel="noopener"><img src="assets/logos/virginia-tech.svg" alt="" width="96" height="47"><span>Boeing Center for Veteran Transition<br>and Military Families</span></a>
+    </div>
+    <div class="map-frame">
+      <iframe src="https://www.google.com/maps?q=Virginia+Tech+Academic+Building+One%2C+3625+Potomac+Ave%2C+Alexandria%2C+VA+22305&amp;output=embed" title="Map of Virginia Tech Innovation Campus, Academic Building One, Alexandria, Virginia" loading="lazy" width="600" height="420"></iframe>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="faq" aria-labelledby="faq-title">
+  <div class="wrap faq-layout">
+    <div>
+      <p class="eyebrow">FAQ</p>
+      <h2 id="faq-title">Common questions.</h2>
+      <p>Still have a question? Email <a class="text-link" href="mailto:moonshotrodeo@arrowheadresearch.org">moonshotrodeo@arrowheadresearch.org</a>.</p>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item"><summary>Is Moonshot Rodeo a competition?</summary><div class="faq-a"><p>No. Moonshot Rodeo isn’t a competition. There are no winners or rankings; it’s a chance to network with builders, mentors, and experts and get direct feedback on your work.</p></div></details>
+      <details class="faq-item"><summary>When and where is Moonshot Rodeo 2027?</summary><div class="faq-a"><p>Presentation day is February 4, 2027 at the Virginia Tech Innovation Campus, Academic Building One, 3625 Potomac Ave, Alexandria, Virginia. The optional build sprint runs January 25–February 3, 2027.</p></div></details>
+      <details class="faq-item"><summary>Do I need to join the build sprint?</summary><div class="faq-a"><p>No. The January 25–February 3, 2027 build sprint is optional and leads into presentation day on February 4. You can apply to build with access to shared tools and expert support (you bring your own materials), bring an existing project, or present a creative solution to a problem in the field. All three ways to present share the same stage and expert panel.</p></div></details>
+      <details class="faq-item"><summary>Do I need a physical prototype?</summary><div class="faq-a"><p>No. We also welcome presentations on creative solutions to real problems, like field workarounds, new processes, or improvised tools. If you solved something hard, it fits.</p></div></details>
+      <details class="faq-item"><summary>What kinds of projects fit?</summary><div class="faq-a"><p>The 2026 projects covered autonomy, software, security, tracking, and RF systems. We also welcome field workarounds, processes, tactics, and improvised tools. The common thread is solving real operational problems.</p></div></details>
+      <details class="faq-item"><summary>Who presents at Moonshot Rodeo?</summary><div class="faq-a"><p>Military and intelligence community builders present their technical work. In 2026, presenters included active-duty soldiers and sailors, Army engineers and technicians, and a Virginia Tech Army ROTC team.</p></div></details>
+      <details class="faq-item"><summary>Can I help without presenting?</summary><div class="faq-a"><p>Yes. You can reach out about mentoring presenters or about partnership opportunities for your organization by emailing info@arrowheadresearch.org.</p></div></details>
+    </div>
+  </div>
+</section>
+
+<section class="closing" aria-labelledby="closing-title">
+  <div class="wrap closing-inner">
+    <h2 id="closing-title">Have a project or field solution you want to present?</h2>
+    <p>Presentation day is February 4, 2027. The application starts with a short description of your project.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary btn-lg" href="{{APPLY_URL}}" target="_blank" rel="noopener" data-cta="closing-apply">Apply to present <span aria-hidden="true">→</span></a>
+      <a class="btn btn-ghost btn-lg" href="{{GCAL_URL}}" target="_blank" rel="noopener" data-cta="gcal">Add to Google Calendar</a>
+    </div>
+  </div>
+</section>
+</main>
+<!-- SITE_FOOTER -->
+<!-- STICKY_CTA -->
+<!-- INLINE_SCRIPT -->
+</body>
+</html>
