@@ -108,8 +108,10 @@ address{font-style:normal;font-size:19px;line-height:1.5;margin:0 0 18px}
 .hero-actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
 /* Hero entrance: copy rises in a stagger while the photo settles */
 @keyframes hero-rise{from{opacity:0;transform:translateY(28px)}}
-@keyframes hero-settle{from{opacity:0;transform:scale(1.08)}}
-.hero-media img{animation:hero-settle 1.6s cubic-bezier(.2,.7,.2,1) both}
+@keyframes hero-fade{from{opacity:0}}
+@keyframes hero-settle{from{transform:scale(1.08)}}
+.hero-media{overflow:hidden;animation:hero-fade 1.2s ease both}
+.hero-media img{animation:hero-settle 1.8s cubic-bezier(.2,.7,.2,1) both}
 .hero-inner>*{animation:hero-rise .8s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(150ms + var(--i,0) * 110ms)}
 .hero-inner>:nth-child(2){--i:1}
 .hero-inner>:nth-child(3){--i:3}
