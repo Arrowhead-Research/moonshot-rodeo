@@ -11,6 +11,9 @@ copytree("assets/partners", "dist/assets/partners", dirs_exist_ok=True)
 
 for source, destination in [('src/index.html', 'dist/index.html'), ('src/build-sprint.html', 'dist/build-sprint/index.html')]:
     page = Path(source).read_text()
+    site_prefix = '../' if source == 'src/build-sprint.html' else './'
+    partner_logos = Path("src/partner-logos.html").read_text().strip()
+    page = page.replace("<!-- PARTNER_LOGOS -->", partner_logos.replace("{{SITE_PREFIX}}", site_prefix))
     page = page.replace('<!-- INLINE_STYLES -->', '<style>\n' + Path('dist/styles.css').read_text() + '\n</style>')
     page = page.replace('<!-- INLINE_SCRIPT -->', '<script>\n' + Path('dist/script.js').read_text() + '\n</script>')
     for relative in set(re.findall(r'src="(assets/[^"\s]+)"', page)):
@@ -19,7 +22,6 @@ for source, destination in [('src/index.html', 'dist/index.html'), ('src/build-s
         encoded = base64.b64encode(asset.read_bytes()).decode('ascii')
         page = page.replace('src="' + relative + '"', 'src="data:' + mime + ';base64,' + encoded + '"')
     # Resolve site links relative to the page for root and project-site hosting.
-    site_prefix = '../' if source == 'src/build-sprint.html' else './'
     page = re.sub(r'href="/(?!/)', 'href="' + site_prefix, page)
     output = Path(destination)
     output.parent.mkdir(parents=True, exist_ok=True)

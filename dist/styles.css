@@ -91,3 +91,9 @@ header .site-brand img{width:144px;height:36px;object-fit:contain}
 .recap-panelists dl{margin:0}
 .recap-panelists dt{font-size:14px;font-weight:600}
 .recap-panelists dd{margin:0 0 10px;color:var(--muted);font-size:12px;line-height:1.5}
+
+.partner-logos.landing-partner-logos{grid-template-columns:repeat(4,minmax(0,1fr))}
+.landing-partner-logos .partner-logo{min-height:174px;padding:16px}
+.landing-partner-logos :is(.irongate-logo,.ots-logo) img{width:auto;height:138px;max-width:100%;max-height:none}
+@media(max-width:900px){.partner-logos.landing-partner-logos{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){.landing-partner-logos .partner-logo{min-height:148px;padding:12px}.landing-partner-logos :is(.irongate-logo,.ots-logo) img{height:118px}}
