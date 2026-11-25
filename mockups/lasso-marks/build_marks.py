@@ -1,50 +1,51 @@
-"""Generate the lasso-mark mockup page. Run: python3 mockups/lasso-marks/build_marks.py"""
+"""Generate the round-2 lasso-mark mockup page (index.html).
+
+Round 2 keeps the original live mark's style and makes minimal changes so the
+loop plus trailing tail stops reading as a head and tail. Round 1 is kept in
+round-1.html. Run: python3 mockups/lasso-marks/build_marks.py
+"""
 from pathlib import Path
 
 NIGHT = '#0c1411'
-BASE = 'fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"'
+BASE = 'fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.3"'
+HERE = Path(__file__).parent
 
-MARKS = {
- 'current': ('Current (do not use)', 'The live mark: loop, small hondo and a wavy trailing tail.',
-  f'<svg viewBox="0 0 32 32" {BASE} stroke-width="2.3"><ellipse cx="19" cy="10.5" rx="11" ry="7" transform="rotate(-16 19 10.5)"/><ellipse cx="9.4" cy="16.8" rx="2.2" ry="1.5" transform="rotate(-35 9.4 16.8)"/><path d="M8.6 18.6c-1.9 2.8-1.4 5 1.6 5.6 3.4.7 6.9-1.6 10.4-1 3 .5 5 2.6 6.8 6"/></svg>'),
+ORIGINAL = f'<svg viewBox="0 0 32 32" {BASE}><ellipse cx="19" cy="10.5" rx="11" ry="7" transform="rotate(-16 19 10.5)"/><ellipse cx="9.4" cy="16.8" rx="2.2" ry="1.5" transform="rotate(-35 9.4 16.8)"/><path d="M8.6 18.6c-1.9 2.8-1.4 5 1.6 5.6 3.4.7 6.9-1.6 10.4-1 3 .5 5 2.6 6.8 6"/></svg>'
 
- 'a': ('A · Coiled ring', 'Two turns of rope coiled into one closed ring, cinched by a hondo wrap. No loose end.',
-  f'<svg viewBox="0 0 32 32" {BASE} stroke-width="2.1">'
-  '<ellipse cx="15.2" cy="16.6" rx="11.6" ry="10.6" transform="rotate(-18 15.2 16.6)"/>'
-  '<ellipse cx="17" cy="15.4" rx="9.4" ry="8.6" transform="rotate(-18 17 15.4)"/>'
-  f'<rect x="3.2" y="16.4" width="6.4" height="4.6" rx="1.6" transform="rotate(-28 6.4 18.7)" fill="{NIGHT}"/>'
-  '<path d="M5.1 17.2l2.4 3.9" transform="rotate(-28 6.4 18.7)" stroke-width="1.5"/>'
-  '</svg>'),
+OPTIONS = [
+    ('1', 'Shorter tail', "Original loop and hondo; the wavy tail is cut to one short curve that turns back under the loop.",
+     f'<svg viewBox="0 0 32 32" {BASE}><ellipse cx="19" cy="10.5" rx="11" ry="7" transform="rotate(-16 19 10.5)"/><ellipse cx="9.4" cy="16.8" rx="2.2" ry="1.5" transform="rotate(-35 9.4 16.8)"/><path d="M8.6 18.6c-1.9 2.8-1.4 5 1.6 5.6 2.6.5 5-.2 7-1.4"/></svg>'),
+    ('2', 'Thrown loop', "Loop flattened into an angled ellipse like a lasso mid-throw, hondo on the loop, tail curled back underneath.",
+     f'<svg viewBox="0 0 32 32" {BASE}><ellipse cx="18.6" cy="12" rx="12" ry="5.6" transform="rotate(-24 18.6 12)"/><ellipse cx="8.2" cy="17.2" rx="2.3" ry="1.6" transform="rotate(-60 8.2 17.2)" fill="{NIGHT}"/><path d="M7.4 19.4c-1.2 3 .2 5.4 3.4 5.6 2.8.2 5.2-1 7-2.8"/></svg>'),
+    ('3', 'Crossed rope', "The rope runs through the hondo and crosses itself, leaving two short ends instead of one trailing tail.",
+     f'<svg viewBox="0 0 32 32" {BASE}><path d="M10.4 16.4C6.4 11 12.6 4 21.4 3.6c6.4-.2 9.6 3 8.2 6.8-1.6 4.4-9.4 7.6-15.4 7.2"/><path d="M7.6 15.2c1.4 2.2 3.8 4 6.4 5.8 1.8 1.2 3.4 2.4 5.4 2.6" stroke="{NIGHT}" stroke-width="5.2"/><path d="M7.6 15.2c1.4 2.2 3.8 4 6.4 5.8 1.8 1.2 3.4 2.4 5.4 2.6"/><ellipse cx="9.8" cy="16.8" rx="2.3" ry="1.6" transform="rotate(-35 9.8 16.8)" fill="{NIGHT}"/></svg>'),
+    ('4', 'Coiled loop', "A second turn of rope coils inside the loop, with the same short tail as option 1.",
+     f'<svg viewBox="0 0 32 32" {BASE}><ellipse cx="19" cy="10.5" rx="11" ry="7" transform="rotate(-16 19 10.5)"/><path d="M10.6 15.8C12 14.6 12.6 13.8 13.73 13.26"/><path d="M13.73 13.26A6.8 3.4 -16 1 1 20.16 14.02"/><ellipse cx="9.4" cy="16.8" rx="2.2" ry="1.5" transform="rotate(-35 9.4 16.8)"/><path d="M8.6 18.6c-1.9 2.8-1.4 5 1.6 5.6 2.6.5 5-.2 7-1.4"/></svg>'),
+]
 
- 'b': ('B · Lassoed moon', 'A crescent moon caught inside the loop; the hondo sits on top and the rope pulls taut up and out.',
-  f'<svg viewBox="0 0 32 32" {BASE} stroke-width="2.1"><ellipse cx="14.6" cy="17.6" rx="12" ry="10.6" transform="rotate(-20 14.6 17.6)"/><path d="M13.27 12.04A6.4 6.4 0 1 0 20.3 19.51A5.2 5.2 0 0 1 13.27 12.04Z" fill="currentColor" stroke="none"/><circle cx="17.5" cy="6.98" r="2" fill="{NIGHT}" stroke-width="1.8"/><path d="M18.8 5.48L21.7 2.1800000000000006"/></svg>'),
 
- 'c': ('C · Orbit lasso', 'A small planet ringed by a lasso orbit, with the hondo knot riding the loop like a satellite.',
-  f'<svg viewBox="0 0 32 32" {BASE} stroke-width="2.1">'
-  '<path d="M5.1 21.3A13 5 -24 0 1 26.9 10.7"/>'
-  '<circle cx="16" cy="16" r="6.4" fill="currentColor" stroke="none"/>'
-  f'<path d="M26.9 10.7A13 5 -24 0 1 5.1 21.3" stroke="{NIGHT}" stroke-width="4.4"/>'
-  '<path d="M26.9 10.7A13 5 -24 0 1 5.1 21.3"/>'
-  f'<rect x="24.1" y="14.2" width="4.6" height="3.4" rx="1.2" transform="rotate(-24 26.4 15.9)" fill="{NIGHT}" stroke-width="1.8"/>'
-  '<path d="M7 5.2v3.6M5.2 7h3.6" stroke-width="1.6"/>'
-  '</svg>'),
+def header(svg, label, current=False):
+    mark = svg.replace('<svg ', '<svg class="brand-mark" aria-hidden="true" ', 1)
+    cls = ' is-current' if current else ''
+    return (f'<div class="strip{cls}"><span class="tag">{label}</span><div class="site-header demo"><div class="header-inner">'
+            f'<span class="brand">{mark}<span class="brand-name">Moonshot Rodeo</span><span class="brand-by">by '
+            '<img src="../../assets/brand/arrowhead-wordmark.png" alt="Arrowhead Research" width="96" height="17"></span></span>'
+            '<span class="fake-cta">Apply to present</span></div></div></div>')
 
- 'd': ('D · Monoline hondo', 'A geometric tilted loop with a square hondo; the short end rises and sweeps back over the loop like a spin line.',
-  f'<svg viewBox="0 0 32 32" {BASE} stroke-width="2.2"><ellipse cx="17" cy="19.6" rx="10.2" ry="7.2" transform="rotate(-14 17 19.6)"/><rect x="4.8" y="19.77" width="4.6" height="4.6" rx="1.3" fill="{NIGHT}" transform="rotate(-14 7.1 22.07)"/><path d="M6.699999999999999 19.67L3.81 19.93A13.4 10.4 -14 0 1 21.32 9.24"/></svg>'),
-}
 
-def card(key):
-    title, desc, svg = MARKS[key]
-    cls = ' is-current' if key == 'current' else ''
+def card(key, title, desc, svg):
     return f'''
-<section class="option{cls}" id="opt-{key}">
-  <header class="opt-head"><h2>{title}</h2><p>{desc}</p></header>
-  <div class="site-header demo"><div class="header-inner"><span class="brand">{svg.replace('<svg ', '<svg class="brand-mark" aria-hidden="true" ', 1)}<span class="brand-name">Moonshot Rodeo</span><span class="brand-by">by <img src="../../assets/brand/arrowhead-wordmark.png" alt="Arrowhead Research" width="96" height="17"></span></span><span class="fake-nav"><span>Why present</span><span>Ways to present</span><span>Build sprint</span><span class="fake-cta">Apply to present</span></span></div></div>
+<section class="option" id="opt-{key}">
+  <header class="opt-head"><h2>Option {key} · {title}</h2><p>{desc}</p></header>
+  {header(ORIGINAL, 'Current live mark', current=True)}
+  {header(svg, 'Option ' + key)}
   <div class="large-row">
-    <div class="large">{svg}</div>
-    <div class="sizes"><div class="s64">{svg}</div><div class="s32">{svg}</div><div class="s16">{svg}</div><div class="footer-demo">{svg}<span>Moonshot Rodeo<span class="tm">™</span></span></div></div>
+    <figure class="is-current">{ORIGINAL}<figcaption>Current live mark</figcaption></figure>
+    <span class="arrow" aria-hidden="true">→</span>
+    <figure>{svg}<figcaption>Option {key}</figcaption></figure>
   </div>
 </section>'''
+
 
 page = f'''<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -57,36 +58,34 @@ page = f'''<!doctype html>
 body{{background:#070c0a;color:var(--on-dark);margin:0;font-family:var(--body)}}
 .page{{max-width:1240px;margin:0 auto;padding:40px 32px 64px}}
 .page>h1{{font:800 34px/1.05 var(--display);font-variation-settings:'wdth' 80;text-transform:uppercase;margin:0 0 6px}}
-.page>p{{color:var(--on-dark-muted);margin:0 0 28px;max-width:70ch}}
+.page>p{{color:var(--on-dark-muted);margin:0 0 28px;max-width:76ch}}
+.page>p a{{color:var(--signal)}}
 .grid{{display:grid;grid-template-columns:1fr 1fr;gap:20px}}
 .option{{background:var(--night-2);border:1px solid var(--night-line);border-radius:var(--radius);overflow:hidden}}
-.option.is-current{{grid-column:1/-1;opacity:.8;border:1px dashed #a14a3a}}
-.option.is-current h2::after{{content:'REFERENCE ONLY';margin-left:10px;font:700 11px var(--mono);color:#ff8a73;letter-spacing:.06em;vertical-align:middle}}
 .opt-head{{padding:18px 22px 14px}}
 .opt-head h2{{font:800 20px var(--display);font-variation-settings:'wdth' 85;text-transform:uppercase;margin:0 0 4px;color:var(--signal)}}
-.option.is-current .opt-head h2{{color:#ff8a73}}
-.opt-head p{{margin:0;color:var(--on-dark-muted);font-size:14px}}
-.site-header.demo{{position:relative;background:var(--night)}}
+.opt-head p{{margin:0;color:var(--on-dark-muted);font-size:14px;min-height:2.9em}}
+.strip{{position:relative;border-top:1px solid var(--night-line)}}
+.strip .tag{{display:block;background:var(--night);padding:10px 22px 0;font:700 10.5px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--signal)}}
+.strip.is-current .tag{{color:#ff8a73}}
+.strip.is-current .brand{{opacity:.72}}
+.site-header.demo{{position:relative;background:var(--night);border-bottom:0}}
 .site-header.demo .header-inner{{padding:0 22px}}
-.fake-nav{{display:flex;gap:18px;align-items:center;font-size:13px;color:var(--on-dark-muted);white-space:nowrap;overflow:hidden}}
-.fake-cta{{background:var(--signal);color:var(--night);font-weight:700;padding:7px 12px;border-radius:999px}}
-.grid .fake-nav span:not(.fake-cta){{display:none}}
-.large-row{{display:flex;align-items:center;gap:28px;padding:24px 22px;background:var(--night)}}
-.large-row svg{{color:var(--signal);display:block}}
-.large svg{{width:168px;height:168px}}
-.sizes{{display:flex;flex-wrap:wrap;align-items:flex-end;gap:20px}}
-.s64 svg{{width:64px;height:64px}}.s32 svg{{width:32px;height:32px}}.s16 svg{{width:16px;height:16px}}
-.footer-demo{{display:flex;align-items:center;gap:8px;font:800 22px var(--display);font-variation-settings:'wdth' 80;text-transform:uppercase;flex-basis:100%}}
-.footer-demo svg{{width:28px;height:28px}}.footer-demo .tm{{font-size:.5em}}
-@media (max-width:900px){{.grid{{grid-template-columns:1fr}}.page{{padding:28px 16px}}.large svg{{width:120px;height:120px}}}}
+.fake-cta{{background:var(--signal);color:var(--night);font-weight:700;font-size:13px;padding:7px 12px;border-radius:999px;white-space:nowrap}}
+.large-row{{display:flex;align-items:center;justify-content:center;gap:24px;padding:26px 22px;background:var(--night);border-top:1px solid var(--night-line)}}
+.large-row figure{{margin:0;text-align:center}}
+.large-row svg{{color:var(--signal);display:block;width:180px;height:180px}}
+.large-row figure.is-current svg{{width:120px;height:120px;opacity:.72;margin:30px auto}}
+.large-row figcaption{{font:700 10.5px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--signal);margin-top:6px}}
+.large-row figure.is-current figcaption{{color:#ff8a73}}
+.arrow{{color:var(--on-dark-muted);font-size:22px}}
+@media (max-width:900px){{.grid{{grid-template-columns:1fr}}.page{{padding:28px 16px}}.large-row svg{{width:132px;height:132px}}.large-row figure.is-current svg{{width:96px;height:96px}}}}
 </style></head><body><main class="page">
-<h1>Lasso mark options</h1>
-<p>Mockup only, not live. Each option is shown at header size beside the wordmark (26px, as on the site), then large and at 64, 32 and 16px, plus the footer lockup. All in signal yellow (#f2b705) on the night header.</p>
-{card('current')}
-<div class="grid" style="margin-top:20px">{''.join(card(k) for k in 'abcd')}</div>
+<h1>Lasso mark options · round 2</h1>
+<p>Mockup only, not live. Small changes to the current live mark so the loop and trailing tail stop reading as a head and tail. Each option sits beside the current live mark (labeled in red) at header size (26px) and large, in signal yellow on the night header. <a href="round-1.html">Round 1 options</a></p>
+<div class="grid">{''.join(card(*o) for o in OPTIONS)}</div>
 </main></body></html>'''
 
-Path(__file__).with_name('index.html').write_text(page)
-for k, (_, _, svg) in MARKS.items():
-    if k != 'current':
-        Path(__file__).with_name(f'lasso-{k}.svg').write_text(svg.replace('<svg ', '<svg xmlns="http://www.w3.org/2000/svg" color="#f2b705" ', 1).replace(NIGHT, NIGHT) + '\n')
+(HERE / 'index.html').write_text(page)
+for key, _, _, svg in OPTIONS:
+    (HERE / f'lasso-v2-{key}.svg').write_text(svg.replace('<svg ', '<svg xmlns="http://www.w3.org/2000/svg" color="#f2b705" ', 1) + '\n')
