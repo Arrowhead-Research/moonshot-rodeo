@@ -114,7 +114,7 @@ address{font-style:normal;font-size:19px;line-height:1.5;margin:0 0 18px}
 
 /* Facts strip */
 .facts{background:var(--night-2);color:var(--on-dark);border-top:1px solid var(--night-line)}
-.facts-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr}
+.facts-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
 .facts-grid>div{padding:24px 24px 24px 0;border-right:1px solid var(--night-line);margin-right:24px}
 .facts-grid>div:last-child{border-right:0;margin-right:0}
 .facts .label{color:var(--on-dark-muted)}
@@ -251,7 +251,7 @@ address{font-style:normal;font-size:19px;line-height:1.5;margin:0 0 18px}
 .site-footer{background:var(--paper);padding:64px 0 32px;border-top:1px solid var(--line)}
 .footer-partners{padding-bottom:40px;border-bottom:1px solid var(--line);margin-bottom:40px}
 .footer-partners h2{margin-bottom:20px}
-.partner-logos{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.partner-logos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
 .partner-logo{display:flex;align-items:center;justify-content:center;height:120px;padding:16px 24px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);transition:border-color .2s,transform .2s}
 .partner-logo:hover{border-color:var(--green);transform:translateY(-2px)}
 .partner-logo img{height:40px;width:auto;max-width:100%;object-fit:contain}
@@ -334,7 +334,7 @@ address{font-style:normal;font-size:19px;line-height:1.5;margin:0 0 18px}
   .hero-media::after{background:linear-gradient(180deg,rgba(12,20,17,.55) 0%,rgba(12,20,17,.82) 45%,var(--night) 100%)}
   .facts-grid{grid-template-columns:1fr 1fr}
   .facts-grid>div{border-right:0;margin-right:0;padding:18px 12px 18px 0;border-bottom:1px solid var(--night-line)}
-  .facts-grid>div:nth-last-child(-n+2){border-bottom:0}
+  .facts-grid>div:last-child{border-bottom:0}
   .section-head-split,.how-layout,.recap-top,.venue-layout,.faq-layout,.page-hero-layout,.split-layout{grid-template-columns:1fr;gap:32px}
   .split-layout-reverse>figure{order:0}
   .faq-layout>div:first-child{position:static}
@@ -361,3 +361,13 @@ address{font-style:normal;font-size:19px;line-height:1.5;margin:0 0 18px}
   .inline-cta .btn{width:100%}
   .brand-name{font-size:17px}
 }
+
+
+.hero-inner > .hero-partners{max-width:none;margin-top:26px}
+.hero-partners h2{margin:0 0 10px}
+.hero-partner-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.hero-partner-grid a{display:flex;align-items:center;justify-content:center;gap:16px;min-width:0;padding:14px;background:var(--card);color:#23384a;border-radius:var(--radius);font-weight:700;font-size:.9rem}
+.hero-partner-grid img{width:auto;height:auto;max-width:50%;max-height:48px;object-fit:contain}
+.arena-logo{background:#fff}
+.arena-logo img,.tenaxiom-logo img{height:82px}
+@media(max-width:700px){.hero-partner-grid{grid-template-columns:1fr}.hero-partner-grid a{justify-content:flex-start}}

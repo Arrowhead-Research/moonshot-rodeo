@@ -15,7 +15,7 @@ import re
 
 SITE_URL = 'https://arrowheadresearch.org/moonshot-rodeo/'
 APPLY_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSf_Ubf0xR1-YBlCTn87MaXaGOxG4RZdPN51F5zK_tqhxJaBOA/viewform?usp=dialog'
-VENUE = 'Virginia Tech Innovation Campus, Academic Building One, 3625 Potomac Ave, Alexandria, VA 22305'
+VENUE = '3625 Potomac Avenue, Alexandria, VA 22305'
 EVENT_SUMMARY = 'Moonshot Rodeo 2027'
 EVENT_DETAILS = ('Military and intelligence community builders present prototypes and field '
                  'solutions to an expert panel. Details: ' + SITE_URL)
