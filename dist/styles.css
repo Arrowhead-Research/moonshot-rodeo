@@ -370,5 +370,6 @@ address{font-style:normal;font-size:19px;line-height:1.5;margin:0 0 18px}
 .hero-partner-grid a{display:flex;align-items:center;justify-content:center;gap:16px;min-width:0;padding:14px;background:var(--card);color:#23384a;border-radius:var(--radius);font-weight:700;font-size:.9rem}
 .hero-partner-grid img{width:auto;height:auto;max-width:50%;max-height:48px;object-fit:contain}
 .arena-logo{background:#fff}
-.arena-logo img,.tenaxiom-logo img{height:82px}
+.arena-logo img{height:82px}
+.tenaxiom-logo img{height:60px}
 @media(max-width:700px){.hero-partner-grid{grid-template-columns:1fr}.hero-partner-grid a{justify-content:flex-start}}
